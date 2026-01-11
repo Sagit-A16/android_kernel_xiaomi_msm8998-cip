@@ -1709,8 +1709,6 @@ static struct usb_function *ncm_alloc(struct usb_function_instance *fi)
 	mutex_lock(&opts->lock);
 	opts->refcnt++;
 	ncm_string_defs[STRING_MAC_IDX].s = ncm->ethaddr;
-	spin_lock_init(&ncm->lock);
-	ncm_reset_values(ncm);
 	mutex_unlock(&opts->lock);
 	ncm->port.is_fixed = true;
 	ncm->port.supports_multi_frame = true;
